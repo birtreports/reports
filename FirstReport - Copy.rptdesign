@@ -4,7 +4,7 @@
     <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
     <text-property name="title">Test Report for BIRT</text-property>
     <property name="units">in</property>
-    <property name="layoutPreference">fixed layout</property>
+    <property name="layoutPreference">auto layout</property>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="data-warehouse" id="60">
             <list-property name="privateDriverProperties">
@@ -279,7 +279,7 @@ order by date]]></xml-property>
       <Visible>true</Visible>
       <Label>
         <Caption>
-          <Value>Customers in - foot traffic per month</Value>
+          <Value>Average foot traffic per month</Value>
           <Font>
             <Size>16.0</Size>
             <Bold>true</Bold>
@@ -1431,12 +1431,101 @@ order by date]]></xml-property>
                 </structure>
             </list-property>
         </extended-item>
-        <image id="149">
-            <property name="height">0.3333333333333333in</property>
-            <property name="width">1.7604166666666667in</property>
-            <property name="source">url</property>
-            <expression name="uri" type="constant">http://birtreporting.auth.company/YellowFin.jpg</expression>
-        </image>
+        <text id="117">
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[Break
+]]></text-property>
+        </text>
+        <table id="87">
+            <property name="dataSet">Foot Traffic Daily</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">date</property>
+                    <text-property name="displayName">date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["date"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">location</property>
+                    <text-property name="displayName">location</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["location"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">visitors_in</property>
+                    <text-property name="displayName">visitors_in</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["visitors_in"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">visitors_out</property>
+                    <text-property name="displayName">visitors_out</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["visitors_out"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="111"/>
+            <column id="112"/>
+            <column id="113"/>
+            <column id="114"/>
+            <header>
+                <row id="88">
+                    <cell id="89">
+                        <label id="90">
+                            <text-property name="text">date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="91">
+                        <label id="92">
+                            <text-property name="text">location</text-property>
+                        </label>
+                    </cell>
+                    <cell id="93">
+                        <label id="94">
+                            <text-property name="text">visitors_in</text-property>
+                        </label>
+                    </cell>
+                    <cell id="95">
+                        <label id="96">
+                            <text-property name="text">visitors_out</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="97">
+                    <cell id="98">
+                        <data id="99">
+                            <property name="resultSetColumn">date</property>
+                        </data>
+                    </cell>
+                    <cell id="100">
+                        <data id="101">
+                            <property name="resultSetColumn">location</property>
+                        </data>
+                    </cell>
+                    <cell id="102">
+                        <data id="103">
+                            <property name="resultSetColumn">visitors_in</property>
+                        </data>
+                    </cell>
+                    <cell id="104">
+                        <data id="105">
+                            <property name="resultSetColumn">visitors_out</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="106">
+                    <cell id="107"/>
+                    <cell id="108"/>
+                    <cell id="109"/>
+                    <cell id="110"/>
+                </row>
+            </footer>
+        </table>
     </body>
     <list-property name="images">
         <structure>
